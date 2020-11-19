@@ -86,9 +86,21 @@ export default {
       }
       const user = await models.User.create({
         ...newUser,
-        role: 'customer',
+        role: 'user',
       });
       return { token: createToken(user, secret, '50m') };
+    },
+    updateUser: async (parents,
+      {
+        id, firstName, lastName, active, role
+      }, { models }) => {
+      await models.User.update({
+        firstName, lastName, active, role
+      }, {
+        where: { id }
+      });
+      const updatedUser = await models.User.findOne({ where: { id } });
+      return updatedUser;
     },
   },
 };

@@ -20,12 +20,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      postcode: {
-        type: Sequelize.INTEGER
-      },
-      phone: {
-        type: Sequelize.INTEGER
-      },
       active: {
         type: Sequelize.BOOLEAN
       },

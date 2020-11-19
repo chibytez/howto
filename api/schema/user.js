@@ -24,5 +24,12 @@ export default gql`
       email: String!
       password: String!
     ): Token!
+    updateUser(
+      id: ID!
+      firstName: String
+      lastName: String
+      active: Boolean
+      role: String
+    ): User
   }
   `;
